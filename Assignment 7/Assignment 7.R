@@ -5,6 +5,7 @@ data <- read_csv("job_satisfaction1.csv") %>% mutate(education_level =
 set.seed(16645573)
 my_js <- data %>% sample_n(104)
 my_js %>% group_by(education_level) %>% summarise(count = n(), mean_score = 
+                                                    mean(score))
 my_js %>% ggplot(aes(x = education_level, y = score)) +
   geom_boxplot() +
   labs(
